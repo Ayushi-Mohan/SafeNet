@@ -1,0 +1,19 @@
+{% extends 'safenet/base.html' %}
+{% load static %}
+
+{% block content %}
+<h1>Log In</h1>
+<div class="loginform" >
+	<form method="post">
+		<fieldset>
+			<legend>Log-In Information</legend>
+				E-mail<br>
+				<input type="text" name="email"><br><br>
+				Password<br>
+				<input type="password" name="pwd"><br><br>
+				<input type="submit" value="Log In">
+		</fieldset>
+	</form>
+</div>
+{% endblock%}
+	
