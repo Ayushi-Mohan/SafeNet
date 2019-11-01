@@ -1,10 +1,9 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Sign Up</title>
-</head>
-<body>
-	<h1>Sign Up</h1>
+{% extends 'safenet/base.html' %}
+{% load static %}
+
+{% block content %}
+<h1>Sign Up</h1>
+<div class="signupform" >
 	<form method="post">
 		<fieldset>
 			<legend>Sign-Up Information</legend>
@@ -21,5 +20,6 @@
 			<input type="submit" value="Sign Up">
 		</fieldset>
 	</form>
-</body>
-</html>
+</div>
+{% endblock %}
+
