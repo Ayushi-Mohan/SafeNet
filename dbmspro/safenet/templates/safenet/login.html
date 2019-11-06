@@ -4,14 +4,18 @@
 {% block content %}
 <h1>Log In</h1>
 <div class="loginform" >
-	<form method="post">
+	<form method="post" action="{% url 'safenet:user_login' %}">
+		{% csrf_token %}
 		<fieldset>
 			<legend>Log-In Information</legend>
-				E-mail<br>
-				<input type="text" name="email"><br><br>
-				Password<br>
-				<input type="password" name="pwd"><br><br>
-				<input type="submit" value="Log In">
+				<label for="username">Username:</label>
+				<input type="text" name="username" placeholder="Username">
+				<label for="email">Email:</label>
+				<input type="text" name="email" placeholder="Email"><br><br>
+				<label for="password">Password:</label>
+          		<input type="password" name="password" placeholder="Password">
+				<br><br>
+				<input type="submit" value="Login">
 		</fieldset>
 	</form>
 </div>
