@@ -37,6 +37,10 @@ def user_logout(request):
     logout(request)
     return HttpResponseRedirect(reverse('index'))
 
+@login_required
+def yourplans(request):
+    return render(request, 'safenet/your_plans.html')
+
 def signup(request):
     signedup = False
     if request.method == 'POST':

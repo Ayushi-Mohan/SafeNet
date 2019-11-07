@@ -42,6 +42,9 @@
 						<a class="nav-link" href="{% url 'safenet:user_login' %}">LogIn</a>
 					</li> -->
 					{% if user.is_authenticated %}
+					<li class="nav-item">
+						<a class="nav-link" href="{% url 'safenet:yourplans' %}">YourPlans</a>
+					</li>
 					{% else %}
 					<li class="nav-item">
 						<a class="nav-link" href="{% url 'safenet:signup' %}">SignUp</a>

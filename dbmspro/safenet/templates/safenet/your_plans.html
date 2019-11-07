@@ -1,0 +1,126 @@
+{% extends 'safenet/base.html' %}
+{% load static %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+        <h2>Hello {{ user.username }}</h2><br>
+{% else %}
+        <h2>Register or Login if you'd like to</h2><br>
+{% endif %}
+
+<form class="your-plans">
+	<h3>Choose Your Plans</h3>
+	<br>
+	<div class="custom-control custom-checkbox">
+		<input type="checkbox" class="custom-control-input" id="customCheck1">
+		<label class="custom-control-label" for="customCheck1">Bookings</label>
+	</div>
+
+	<div class="custom-control custom-switch">
+		<input type="checkbox" class="custom-control-input" id="customSwitch1">
+		<label class="custom-control-label" for="customSwitch1">Toggle this switch to redirect</label>
+	</div>
+	<div class="form-group">
+		<label for="formGroupExampleInput">URL</label>
+		<input type="text" class="form-control" id="formGroupExampleInput">
+	</div>
+	<br>
+	<div class="custom-control custom-checkbox">
+		<input type="checkbox" class="custom-control-input" id="customCheck2">
+		<label class="custom-control-label" for="customCheck2">Ecommerce</label>
+	</div>
+	<div class="custom-control custom-switch">
+		<input type="checkbox" class="custom-control-input" id="customSwitch2">
+		<label class="custom-control-label" for="customSwitch2">Toggle this switch to redirect</label>
+	</div>
+	<div class="form-group">
+		<label for="formGroupExampleInput">URL</label>
+		<input type="text" class="form-control" id="formGroupExampleInput">
+	  </div>
+	<br>
+
+	<div class="custom-control custom-checkbox">
+		<input type="checkbox" class="custom-control-input" id="customCheck3">
+		<label class="custom-control-label" for="customCheck3">Entertainment</label>
+	</div>
+	<div class="custom-control custom-switch">
+		<input type="checkbox" class="custom-control-input" id="customSwitch3">
+		<label class="custom-control-label" for="customSwitch3">Toggle this switch to redirect</label>
+	</div>
+	<div class="form-group">
+		<label for="formGroupExampleInput">URL</label>
+		<input type="text" class="form-control" id="formGroupExampleInput">
+	  </div>
+	<br>
+
+	<div class="custom-control custom-checkbox">
+		<input type="checkbox" class="custom-control-input" id="customCheck4">
+		<label class="custom-control-label" for="customCheck4">Games</label>
+	</div>
+	<div class="custom-control custom-switch">
+		<input type="checkbox" class="custom-control-input" id="customSwitch4">
+		<label class="custom-control-label" for="customSwitch4">Toggle this switch to redirect</label>
+	</div>
+	<div class="form-group">
+		<label for="formGroupExampleInput">URL</label>
+		<input type="text" class="form-control" id="formGroupExampleInput"
+	  </div>
+	<br>
+
+	<div class="custom-control custom-checkbox">
+		<input type="checkbox" class="custom-control-input" id="customCheck5">
+		<label class="custom-control-label" for="customCheck5">Illegal</label>
+	</div>
+	<div class="custom-control custom-switch">
+		<input type="checkbox" class="custom-control-input" id="customSwitch5">
+		<label class="custom-control-label" for="customSwitch5">Toggle this switch to redirect</label>
+	</div>
+	<div class="form-group">
+		<label for="formGroupExampleInput">URL</label>
+		<input type="text" class="form-control" id="formGroupExampleInput">
+	  </div>
+	<br>
+
+	<div class="custom-control custom-checkbox">
+		<input type="checkbox" class="custom-control-input" id="customCheck6">
+		<label class="custom-control-label" for="customCheck6">Messaging</label>
+	</div>
+	<div class="custom-control custom-switch">
+		<input type="checkbox" class="custom-control-input" id="customSwitch6">
+		<label class="custom-control-label" for="customSwitch6">Toggle this switch to redirect</label>
+	</div>
+	<div class="form-group">
+		<label for="formGroupExampleInput">URL</label>
+		<input type="text" class="form-control" id="formGroupExampleInput">
+	  </div>
+	<br>
+
+	<div class="custom-control custom-checkbox">
+		<input type="checkbox" class="custom-control-input" id="customCheck7">
+		<label class="custom-control-label" for="customCheck7">News</label>
+	</div>
+	<div class="custom-control custom-switch">
+		<input type="checkbox" class="custom-control-input" id="customSwitch7">
+		<label class="custom-control-label" for="customSwitch7">Toggle this switch to redirect</label>
+	</div>
+	<div class="form-group">
+		<label for="formGroupExampleInput">URL</label>
+		<input type="text" class="form-control" id="formGroupExampleInput">
+	  </div>
+	<br>
+
+	<div class="custom-control custom-checkbox">
+		<input type="checkbox" class="custom-control-input" id="customCheck8">
+		<label class="custom-control-label" for="customCheck8">Social Media</label>
+	</div>
+	<div class="custom-control custom-switch">
+		<input type="checkbox" class="custom-control-input" id="customSwitch1">
+		<label class="custom-control-label" for="customSwitch8">Toggle this switch to redirect</label>
+	</div>
+	<div class="form-group">
+		<label for="formGroupExampleInput">URL</label>
+		<input type="text" class="form-control" id="formGroupExampleInput">
+	  </div>
+</form>
+{% endblock %}
