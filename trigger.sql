@@ -1,0 +1,7 @@
+DELIMITER $$
+CREATE TRIGGER insert_user_info
+AFTER INSERT ON auth_user
+FOR EACH ROW
+INSERT INTO User_Info VALUES (SELECT id FROM auth_user ORDER BY id DESC LIMIT 1, SELECT username FROM auth_user ORDER BY id DESC LIMIT 1,
+SELECT email FROM auth_user ORDER BY id DESC LIMIT 1, SELECT password FROM auth_user ORDER BY id DESC LIMIT 1);
+END$$
