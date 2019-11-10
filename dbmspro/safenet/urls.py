@@ -17,5 +17,5 @@ urlpatterns=[
     url(r'^plan_info/$',views.plan_info, name="plan_info"),
     url(r'^signup/$',views.signup,name='signup'),
     url(r'^user_login/$',views.user_login,name='user_login'),
-    url(r'^your_plans/$',views.yourplans,name='yourplans'),
+    url(r'^your_plans/$',views.your_plans,name='your_plans'),
 ]

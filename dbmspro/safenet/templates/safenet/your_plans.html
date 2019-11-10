@@ -16,7 +16,8 @@
         <h2>Register or Login if you'd like to</h2><br>
 {% endif %}
 
-<form class="your-plans">
+<form class="your-plans" method="POST">
+	{% csrf_token %}
 	<h3>Choose Your Plans</h3>
 	<br>
 	<fieldset>
@@ -173,6 +174,10 @@
 		<label for="CustURLRed2">Redirect to URL</label>
 		<input type="text" name="u11" class="form-control" id="CustURLRed2" >
 	</div>
+
+	<br>
+	<br>
+	<input type="submit" value="Submit" action="safenet:your_plans">
 </form>
 
 

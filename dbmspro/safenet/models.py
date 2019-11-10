@@ -78,4 +78,4 @@ class Custom(models.Model):
 	redirect = models.CharField(max_length=100)
 
 	class Meta:
-		unique_together = {('usid', 'block')}
+		unique_together = [['usid', 'block']]
