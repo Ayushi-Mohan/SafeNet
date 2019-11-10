@@ -1,0 +1,1 @@
+mv /tmp/etc_hosts.tmp /etc/hosts
