@@ -91,7 +91,7 @@ def blockSites(urls, b, ec, e, g, il, m, n, s):
 			for website, ip in redirect.items():
 				outf.write('\n' + ip + ' ' + website)
 
-	os.system('sudo ./pymvh.sh')
+	os.system('sudo mv /tmp/etc_hosts.tmp /etc/hosts')
 
 def unblockSites(urls):
 	'''Needs to be run when the user logs out.'''
