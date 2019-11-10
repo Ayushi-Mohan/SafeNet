@@ -16,7 +16,7 @@ def __str__(self):
     password = models.CharField(max_length=20)'''
 
 class User_Info(models.Model):
-	usid = models.CharField(max_length=5, primary_key=True)
+	usid = models.IntegerField(primary_key=True)
 	name = models.CharField(max_length=30)
 	email = models.CharField(max_length=50)
 	password = models.CharField(max_length=100)
@@ -62,7 +62,7 @@ class SocialMedia(models.Model):
 	url = models.CharField(max_length=100)
 
 class Plan(models.Model):
-	usid = models.OneToOneField(User_Info, on_delete=models.CASCADE, primary_key=True)
+	usid = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
 	bookings = models.CharField(max_length=100)
 	ecommerce = models.CharField(max_length=100)
 	entertainment = models.CharField(max_length=100)
@@ -73,7 +73,7 @@ class Plan(models.Model):
 	socialMedia = models.CharField(max_length=100)
 
 class Custom(models.Model):
-	usid = models.OneToOneField(User_Info, on_delete=models.CASCADE)
+	usid = models.OneToOneField(User, on_delete=models.CASCADE)
 	block = models.CharField(max_length=100)
 	redirect = models.CharField(max_length=100)
 

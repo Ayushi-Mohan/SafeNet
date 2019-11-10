@@ -84,9 +84,9 @@ WSGI_APPLICATION = 'dbmspro.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'first',
-        'USER': 'Ayushi',
-        'PASSWORD': 'mithachi',
+        'NAME': 'second',
+        'USER': 'project',
+        'PASSWORD': 'Lolproj,haha!1',
         'HOST': 'localhost',
         'PORT': '',
     }
