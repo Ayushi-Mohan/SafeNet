@@ -114,7 +114,7 @@ def your_plans(request):
     if request.method == 'POST':
         try:
             plan_urls = Plan.objects.get(usid=current_user_id)
-            custom_urls = Custom.objects.get(usid=current_user_id)
+            custom_urls = Custom.objects.filter(usid=current_user_id)
 
             old = list(plan_urls.bookings, plan_urls.ecommerce, plan_urls.entertainment, plan_urls.games, plan_urls.illegal, plan_urls.messaging,
                 plan_urls.news, plan_urls.social_media)
@@ -122,8 +122,10 @@ def your_plans(request):
                 old.append(url.block)
                 old.append(url.redirect)
 
-            
-            custom_urls.delete()
+            if plan_urls:
+                plan_urls.delete()
+            if custom_urls:
+                custom_urls.delete()
 
             bookings = None
             if request.POST.get('c1'):
@@ -166,14 +168,8 @@ def your_plans(request):
                 if request.POST.get('s8'):
                     social_media = request.POST.get('u8')
 
-            plan_urls.bookings=bookings
-            plan_urls.ecommerce=ecommerce
-            plan_urls.entertainment=entertainment
-            plan_urls.games=games
-            plan_urls.illegal=illegal
-            plan_urls.messaging=messaging
-            plan_urls.news=news
-            plan_urls.socialMedia=social_media
+            plan_urls = Plan(usid=current_user_id, bookings=bookings, ecommerce=ecommerce, entertainment=entertainment,
+                games=games, illegal=illegal, messaging=messaging, news=news, socialMedia=social_media)
             plan_urls.save()
 
             block1 = block2 = block3 = None
@@ -216,4 +212,3 @@ def your_plans(request):
         return render(request, 'safenet/your_plans.html', {})
     else:
         return render(request, 'safenet/your_plans.html', {})
-
