@@ -1,5 +1,6 @@
 import platform
 import socket
+import os
 
 def blockSites(urls, b, ec, e, g, il, m, n, s):
 	'''Needs to be run when user logs in.'''
@@ -43,7 +44,7 @@ def blockSites(urls, b, ec, e, g, il, m, n, s):
 			else:
 				for j in range(len(s)):
 					block.append(s[j].url)
-		elif urls[i] == None:
+		elif urls[i] == 'NULL':
 			pass
 		else:
 			ip = socket.gethostbyname(urls[i])
@@ -72,21 +73,25 @@ def blockSites(urls, b, ec, e, g, il, m, n, s):
 				for j in range(len(s)):
 					redirect[s[j]] = ip
 	for i in range(8, len(urls) - 1, 2):
-		if urls[i + 1] == None:
+		if urls[i + 1] == 'NULL':
 			block.append(urls[i])
 		else:
 			ip = socket.gethostbyname(urls[i + 1])
-			redirect[ip] = urls[i]
+			redirect[urls[i]] = ip
 
-	with open(host_file, 'r+') as file:
+	with open(host_file, 'rt') as file:
 		content = file.read()
-		for website in block:
-			if website in content:
-				pass
-			else:
-				file.write('\n127.0.0.1 ' + website)
-		for website, ip in redirect.items():
-			file.write('\n' + ip + ' ' + website)
+		with open('/tmp/etc_hosts.tmp', 'wt') as outf:
+			outf.write(content)
+			for website in block:
+				if website in content:
+					pass
+				else:
+					outf.write('\n127.0.0.1 ' + website)
+			for website, ip in redirect.items():
+				outf.write('\n' + ip + ' ' + website)
+
+	os.system('sudo ./pymvh.sh')
 
 def unblockSites(urls):
 	'''Needs to be run when the user logs out.'''
@@ -112,5 +117,6 @@ def unblockSites(urls):
 
 def updateBlockedSites(old_urls, new_urls, b, ec, e, g, il, m, n, s):
 	'''Needs to be run when user hits "Submit" on checkbox page.'''
-	unblockSites(old_urls)
+	if old_urls:
+		unblockSites(old_urls)
 	blockSites(new_urls, b, ec, e, g, il, m, n, s)

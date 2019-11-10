@@ -1,4 +1,5 @@
 from django.db import models
+from django.conf import settings
 from django.contrib.auth.models import User
 
 # Create your models here.
@@ -62,7 +63,7 @@ class SocialMedia(models.Model):
 	url = models.CharField(max_length=100)
 
 class Plan(models.Model):
-	usid = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
+	usid = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, primary_key=True)
 	bookings = models.CharField(max_length=100)
 	ecommerce = models.CharField(max_length=100)
 	entertainment = models.CharField(max_length=100)
@@ -73,7 +74,7 @@ class Plan(models.Model):
 	socialMedia = models.CharField(max_length=100)
 
 class Custom(models.Model):
-	usid = models.OneToOneField(User, on_delete=models.CASCADE)
+	usid = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
 	block = models.CharField(max_length=100)
 	redirect = models.CharField(max_length=100)
 
