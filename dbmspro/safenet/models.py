@@ -73,7 +73,9 @@ class Plan(models.Model):
 	socialMedia = models.CharField(max_length=100)
 
 class Custom(models.Model):
-	usid = models.OneToOneField(User_Info, on_delete=models.CASCADE, primary_key=True)
+	usid = models.OneToOneField(User_Info, on_delete=models.CASCADE)
 	block = models.CharField(max_length=100)
 	redirect = models.CharField(max_length=100)
 
+	class Meta:
+		unique_together = {('usid', 'block')}
