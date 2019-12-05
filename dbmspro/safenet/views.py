@@ -249,15 +249,19 @@ def your_plans(request):
 		utils.updateBlockedSites(new, b, ec, e, g, il, m, n, s)
 		return render(request, 'safenet/your_plans.html', {})
 	else:
-		plan_urls = Plan.objects.get(usid=current_user)
-		custom_urls = Custom.objects.filter(usid=current_user)
+		try:
+			plan_urls = Plan.objects.get(usid=current_user)
+			custom_urls = Custom.objects.filter(usid=current_user)
 
-		urls = [plan_urls.bookings, plan_urls.ecommerce, plan_urls.entertainment, plan_urls.games, plan_urls.illegal, plan_urls.messaging, plan_urls.news, plan_urls.socialMedia]
-		for url in custom_urls:
-					urls.append(url.block)
-					urls.append(url.redirect)
-		with open('./safenet/static/safenet/javascript/urls.txt', 'w') as f:
-			for item in urls:
-				f.write("%s\n" %item)
+			urls = [plan_urls.bookings, plan_urls.ecommerce, plan_urls.entertainment, plan_urls.games, plan_urls.illegal, plan_urls.messaging, plan_urls.news, plan_urls.socialMedia]
+			for url in custom_urls:
+						urls.append(url.block)
+						urls.append(url.redirect)
+			with open('./safenet/static/safenet/javascript/urls.txt', 'w') as f:
+				for item in urls:
+					f.write("%s\n" %item)
+
+		except:
+			pass
 
 		return render(request, 'safenet/your_plans.html', {})
