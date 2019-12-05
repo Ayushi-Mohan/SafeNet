@@ -26,9 +26,6 @@ function reload(url) {
             if(i==7){
                 document.getElementById("customCheck8").checked = true;
             }
-            if(i==8 || i==9 || i==10){
-                continue;
-            }
         }
         else if(url[i]=='NULL'){
             continue;
@@ -74,18 +71,48 @@ function reload(url) {
                 document.getElementById("customSwitch8").checked = true;
                 document.getElementById("URL8").value = url[i];
             }
-            if(i==8){
-                document.getElementById("customSwitchCust1").checked = true;
-                document.getElementById("CustURLRed1").value = url[i];
-            }
-            if(i==9){
-                document.getElementById("customSwitchCust2").checked = true;
-                document.getElementById("CustURLRed2").value = url[i];
-            }
-            if(i==10){
-                document.getElementById("customSwitchCust3").checked = true;
-                document.getElementById("CustURLRed3").value = url[i];
-            }
         }
     }
+    var count = 0;
+    if (url[8] != 'NULL' && count==0 ){
+        count++;
+        if (url[9] == 'NULL'){
+            document.getElementById("URLcust1").defaultValue = url[i];
+            document.getElementById("customSwitchCust1").checked = false;
+        }
+        else{
+            document.getElementById("URLcust1").defaultValue = url[i];
+            document.getElementById("customSwitchCust1").checked = true;
+            document.getElementById("CustURLRed1").value = url[i];
+        }
+    }
+
+    if (url[8] != 'NULL' && count==1 ){
+        count++;
+        if (url[9] == 'NULL'){
+            document.getElementById("URLcust2").defaultValue = url[i];
+            document.getElementById("customSwitchCust2").checked = false;
+        }
+        else{
+            document.getElementById("URLcust2").defaultValue = url[i];
+            document.getElementById("customSwitchCust2").checked = true;
+            document.getElementById("CustURLRed2").value = url[i];
+        }
+    }
+
+    if (url[8] != 'NULL' && count==2 ){
+        count++;
+        if (url[9] == 'NULL'){
+            document.getElementById("URLcust3").defaultValue = url[i];
+            document.getElementById("customSwitchCust3").checked = false;
+        }
+        else{
+            document.getElementById("URLcust3").defaultValue = url[i];
+            document.getElementById("customSwitchCust3").checked = true;
+            document.getElementById("CustURLRed3").value = url[i];
+        }
+    }
+    
 }
+
+window.onload = reload();
