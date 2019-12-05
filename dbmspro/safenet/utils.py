@@ -12,7 +12,7 @@ def blockSites(urls, b, ec, e, g, il, m, n, s):
 	if OS == 'Windows':
 		host_file = 'C:\\Windows\\System32\\drivers\\etc\\hosts'
 	elif OS == 'Darwin':
-		host_file = 'etc/hosts'
+		host_file = '/etc/hosts'
 	else:
 		host_file = '/etc/hosts'
 
@@ -95,7 +95,7 @@ def blockSites(urls, b, ec, e, g, il, m, n, s):
 	if OS == 'Windows':
 		pass
 	elif OS == 'Darwin':
-		os.system('sudo mv /tmp/etc_hosts.tmp etc/hosts')
+		os.system('sudo mv /tmp/etc_hosts.tmp /etc/hosts')
 	else:
 		os.system('sudo mv /tmp/etc_hosts.tmp /etc/hosts')
 

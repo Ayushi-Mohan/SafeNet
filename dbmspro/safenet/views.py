@@ -16,7 +16,7 @@ def signup(request):
 
 
 from django.shortcuts import render
-from safenet.forms import UserForm, UserProfileInfoForm
+from safenet.forms import UserForm
 from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponseRedirect, HttpResponse
 from django.urls import reverse
@@ -50,23 +50,17 @@ def signup(request):
 	signedup = False
 	if request.method == 'POST':
 		user_form = UserForm(data=request.POST)
-		profile_form = UserProfileInfoForm(data=request.POST)
-		if user_form.is_valid() and profile_form.is_valid(): 
+		if user_form.is_valid(): 
 			user = user_form.save()
 			user.set_password(user.password)
 			user.save()
-			profile = profile_form.save(commit=False)
-			profile.user = user
-			profile.save()
 			signedup = True
 		else:
-			print(user_form.errors,profile_form.errors)
+			print(user_form.errors)
 	else:
 		user_form = UserForm()
-		profile_form = UserProfileInfoForm()
 	return render(request,'safenet/signup.html',
 						  {'user_form':user_form,
-						   'profile_form':profile_form,
 						   'signedup':signedup})
 
 def user_login(request):
@@ -85,7 +79,7 @@ def user_login(request):
 				if OS == 'Windows':
 					host_file = 'C:\\Windows\\System32\\drivers\\etc\\hosts'
 				elif OS == 'Darwin':
-					host_file = 'etc/hosts'
+					host_file = '/etc/hosts'
 				else:
 					host_file = '/etc/hosts'
 
@@ -130,7 +124,6 @@ def your_plans(request):
 		try:
 			plan_urls = Plan.objects.get(usid=current_user)
 			custom_urls = Custom.objects.filter(usid=current_user)
-
 			if plan_urls:
 				plan_urls.delete()
 			if custom_urls:

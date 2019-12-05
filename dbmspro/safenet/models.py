@@ -4,17 +4,8 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 
-class UserProfileInfo(models.Model):
-    user = models.OneToOneField(User,on_delete=models.CASCADE)
-    portfolio_site = models.URLField(blank=True)
-
 def __str__(self):
   return self.user.username
-
-'''class User_Info(AbstractUser):
-    username = models.CharField(max_length=150)
-    email = models.EmailField()
-    password = models.CharField(max_length=20)'''
 
 class User_Info(models.Model):
 	usid = models.IntegerField(primary_key=True)
@@ -78,5 +69,5 @@ class Custom(models.Model):
 	block = models.CharField(max_length=100)
 	redirect = models.CharField(max_length=100)
 
-	class Meta:
-		unique_together = [['usid', 'block']]
+class Meta:
+	unique_together = [['usid', 'block']]

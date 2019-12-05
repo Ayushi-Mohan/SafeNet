@@ -9,6 +9,7 @@
 </style>
 
 <script src="{% static 'safenet/javascript/your_plans.js' %}"></script>
+<script src="{% static 'safenet/javascript/reload.js' %}"></script>
 
 {% if user.is_authenticated %}
         <h2>Hello {{ user.username }}</h2><br>
@@ -32,7 +33,12 @@
 		</div>
 		<div class="form-group" id="divText1" style="display:none">
 			<label for="URL1">URL</label>
-			<input type="text" name="u1" class="form-control" id="URL1" >
+			<select name="u1" class="form-control" id="URL1">
+				<option value="wikipedia.org">Wikipedia</option>
+				<option value="stephenwolfram.com">Stephen Wolfrom</option>
+				<option value="w3schools.com">W3Schools</option>
+				<option value="audi">Audi</option>
+			</select>
 		</div>
 		<br>
 		<div class="custom-control custom-checkbox" id = "divCheck2" >
@@ -45,7 +51,12 @@
 		</div>
 		<div class="form-group" id="divText2" style="display:none">
 			<label for="URL2">URL</label>
-			<input type="text" name="u2" class="form-control" id="URL2">
+			<select name="u2" class="form-control" id="URL2">
+				<option value="wikipedia.org">Wikipedia</option>
+				<option value="stephenwolfram.com">Stephen Wolfrom</option>
+				<option value="w3schools.com">W3Schools</option>
+				<option value="audi">Audi</option>
+			</select>
 		</div>
 		<br>
 
@@ -59,7 +70,12 @@
 		</div>
 		<div class="form-group" id="divText3" style="display:none">
 			<label for="URL3">URL</label>
-			<input type="text" name="u3" class="form-control" id="URL3">
+			<select name="u3" class="form-control" id="URL3">
+				<option value="wikipedia.org">Wikipedia</option>
+				<option value="stephenwolfram.com">Stephen Wolfrom</option>
+				<option value="w3schools.com">W3Schools</option>
+				<option value="audi">Audi</option>
+			</select>
 		</div>
 		<br>
 
@@ -73,7 +89,12 @@
 		</div>
 		<div class="form-group" id="divText4" style="display:none">
 			<label for="URL4">URL</label>
-			<input type="text" name="u4" class="form-control" id="URL4">
+			<select name="u4" class="form-control" id="URL4">
+				<option value="wikipedia.org">Wikipedia</option>
+				<option value="stephenwolfram.com">Stephen Wolfrom</option>
+				<option value="w3schools.com">W3Schools</option>
+				<option value="audi">Audi</option>
+			</select>
 		</div>
 		<br>
 
@@ -87,7 +108,12 @@
 		</div>
 		<div class="form-group" id="divText5" style="display:none">
 			<label for="URL5">URL</label>
-			<input type="text" name="u5" class="form-control" id="URL5">
+			<select name="u5" class="form-control" id="URL5">
+				<option value="wikipedia.org">Wikipedia</option>
+				<option value="stephenwolfram.com">Stephen Wolfrom</option>
+				<option value="w3schools.com">W3Schools</option>
+				<option value="audi">Audi</option>
+			</select>
 		</div>
 		<br>
 
@@ -101,7 +127,12 @@
 		</div>
 		<div class="form-group" id="divText6" style="display:none">
 			<label for="URL6">URL</label>
-			<input type="text" name="u6" class="form-control" id="URL6">
+			<select name="u6" class="form-control" id="URL6">
+				<option value="wikipedia.org">Wikipedia</option>
+				<option value="stephenwolfram.com">Stephen Wolfrom</option>
+				<option value="w3schools.com">W3Schools</option>
+				<option value="audi">Audi</option>
+			</select>
 		</div>
 		<br>
 
@@ -115,7 +146,12 @@
 		</div>
 		<div class="form-group" id="divText7" style="display:none">
 			<label for="URL7">URL</label>
-			<input type="text" name="u7" class="form-control" id="URL7">
+			<select name="u7" class="form-control" id="URL7">
+				<option value="wikipedia.org">Wikipedia</option>
+				<option value="stephenwolfram.com">Stephen Wolfrom</option>
+				<option value="w3schools.com">W3Schools</option>
+				<option value="audi">Audi</option>
+			</select>
 		</div>
 		<br>
 
@@ -129,7 +165,12 @@
 		</div>
 		<div class="form-group" id="divText8" style="display:none">
 			<label for="URL8">URL</label>
-			<input type="text" name="u8" class="form-control" id="URL8">
+			<select name="u8" class="form-control" id="URL8">
+				<option value="wikipedia.org">Wikipedia</option>
+				<option value="stephenwolfram.com">Stephen Wolfrom</option>
+				<option value="w3schools.com">W3Schools</option>
+				<option value="audi">Audi</option>
+			</select>
 		</div>
 	</fieldset>
 
@@ -144,9 +185,14 @@
 		<input type="checkbox" name="s9" class="custom-control-input" id="customSwitchCust1">
 		<label class="custom-control-label" for="customSwitchCust1">Toggle this switch to redirect</label>
 	</div>
-	<div class="form-group" style="display:none" id="divTextCust1">
+	<div class="form-group" id="divTextCust1" style="display:none">
 		<label for="CustURLRed1">Redirect to URL</label>
-		<input type="text" name="u9" class="form-control" id="CustURLRed1">
+		<select name="u9" class="form-control" id="CustURLRed1">
+			<option value="wikipedia.org">Wikipedia</option>
+			<option value="stephenwolfram.com">Stephen Wolfrom</option>
+			<option value="w3schools.com">W3Schools</option>
+			<option value="audi">Audi</option>
+		</select>
 	</div>
 	<br>
 	<div class="form-group" >
@@ -157,9 +203,14 @@
 		<input type="checkbox" name="s10" class="custom-control-input" id="customSwitchCust2" onclick="mySwitchCust2Function()">
 		<label class="custom-control-label" for="customSwitchCust2">Toggle this switch to redirect</label>
 	</div>
-	<div class="form-group" style="display:none" id="divTextCust2">
+	<div class="form-group" id="divTextCust2" style="display:none">
 		<label for="CustURLRed2">Redirect to URL</label>
-		<input type="text" name="u10" class="form-control" id="CustURLRed2">
+		<select name="u10" class="form-control" id="CustURLRed2">
+			<option value="wikipedia.org">Wikipedia</option>
+			<option value="stephenwolfram.com">Stephen Wolfrom</option>
+			<option value="w3schools.com">W3Schools</option>
+			<option value="audi">Audi</option>
+		</select>
 	</div>
 	<br>
 	<div class="form-group" >
@@ -170,9 +221,14 @@
 		<input type="checkbox" name="s11" class="custom-control-input" id="customSwitchCust3" onclick="mySwitchCust3Function()">
 		<label class="custom-control-label" for="customSwitchCust3">Toggle this switch to redirect</label>
 	</div>
-	<div class="form-group" style="display:none" id="divTextCust3">
-		<label for="CustURLRed2">Redirect to URL</label>
-		<input type="text" name="u11" class="form-control" id="CustURLRed2" >
+	<div class="form-group" id="divTextCust3" style="display:none">
+		<label for="CustURLRed3">Redirect to URL</label>
+		<select name="u11" class="form-control" id="CustURLRed3">
+			<option value="wikipedia.org">Wikipedia</option>
+			<option value="stephenwolfram.com">Stephen Wolfrom</option>
+			<option value="w3schools.com">W3Schools</option>
+			<option value="audi">Audi</option>
+		</select>
 	</div>
 
 	<br>
