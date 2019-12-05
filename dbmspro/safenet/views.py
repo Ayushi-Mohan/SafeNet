@@ -124,6 +124,15 @@ def your_plans(request):
 		try:
 			plan_urls = Plan.objects.get(usid=current_user)
 			custom_urls = Custom.objects.filter(usid=current_user)
+
+			urls = [plan_urls.bookings, plan_urls.ecommerce, plan_urls.entertainment, plan_urls.games, plan_urls.illegal, plan_urls.messaging, plan_urls.news, plan_urls.socialMedia]
+			for url in custom_urls:
+						urls.append(url.block)
+						urls.append(url.redirect)
+			with open('./safenet/static/safenet/javascript/urls.txt', 'w') as f:
+				for item in urls:
+					f.write("%s\n" %item)
+
 			if plan_urls:
 				plan_urls.delete()
 			if custom_urls:
@@ -180,18 +189,19 @@ def your_plans(request):
 
 		block1 = block2 = block3 = 'NULL'
 		redirect1 = redirect2 = redirect3 = 'NULL'
+		print('haha')
 		if request.POST.get('c9'):
 			block1 = request.POST.get('c9')
 			if request.POST.get('s9'):
 				redirect1 = request.POST.get('u9')
 		if request.POST.get('c10'):
-			block1 = request.POST.get('c10')
+			block2 = request.POST.get('c10')
 			if request.POST.get('s10'):
-				redirect1 = request.POST.get('u10')
+				redirect2 = request.POST.get('u10')
 		if request.POST.get('c11'):
-			block1 = request.POST.get('c11')
+			block3 = request.POST.get('c11')
 			if request.POST.get('s11'):
-				redirect1 = request.POST.get('u11')
+				redirect3 = request.POST.get('u11')
 
 		block1 = block1.replace('https://', '').replace('http://', '')
 		redirect1 = redirect1.replace('https://', '').replace('http://', '')
@@ -234,7 +244,20 @@ def your_plans(request):
 		n = News.objects.all()
 		s = SocialMedia.objects.all()
 
+		print(new)
+
 		utils.updateBlockedSites(new, b, ec, e, g, il, m, n, s)
 		return render(request, 'safenet/your_plans.html', {})
 	else:
+		plan_urls = Plan.objects.get(usid=current_user)
+		custom_urls = Custom.objects.filter(usid=current_user)
+
+		urls = [plan_urls.bookings, plan_urls.ecommerce, plan_urls.entertainment, plan_urls.games, plan_urls.illegal, plan_urls.messaging, plan_urls.news, plan_urls.socialMedia]
+		for url in custom_urls:
+					urls.append(url.block)
+					urls.append(url.redirect)
+		with open('./safenet/static/safenet/javascript/urls.txt', 'w') as f:
+			for item in urls:
+				f.write("%s\n" %item)
+
 		return render(request, 'safenet/your_plans.html', {})

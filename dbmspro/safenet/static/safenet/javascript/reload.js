@@ -1,5 +1,11 @@
 var i;
-function reload(url) {
+function reload() {
+	const fs = require("fs")
+	fs.readFile('../../static/safenet/javascript/urls.txt', (err, data) => {
+		if(err) throw err;
+
+		console.log(data.toString());
+	})
     for (i=0; i<11; i++){
         if(url[i]=='TRUE'){
             if(i==0){

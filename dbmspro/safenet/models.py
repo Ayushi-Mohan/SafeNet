@@ -65,7 +65,7 @@ class Plan(models.Model):
 	socialMedia = models.CharField(max_length=100)
 
 class Custom(models.Model):
-	usid = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+	usid = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
 	block = models.CharField(max_length=100)
 	redirect = models.CharField(max_length=100)
 
