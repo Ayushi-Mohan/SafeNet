@@ -2,12 +2,12 @@
 {% load static %}
 
 {% block content %}
-<h1>Log In</h1>
-<div class="loginform" >
+<h1 style="padding-left: 20px;"">Log In</h1>
+<div class="loginform" style="padding-left: 20px;">
 	<form method="post" action="{% url 'safenet:user_login' %}">
 		{% csrf_token %}
 		<fieldset>
-			<legend>Log-In Information</legend>
+			<legend style="padding-top: 20px; padding-bottom: 10px;">Log-In Information</legend>
 				<label for="username">Username:</label>
 				<input type="text" name="username" placeholder="Username">
 				<br><br>

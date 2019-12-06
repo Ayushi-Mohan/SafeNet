@@ -27,7 +27,7 @@
 						<a class="nav-link" href="{% url 'index' %}">Home <span class="sr-only">(current)</span></a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="{% url 'safenet:plan_info' %}">Plans</a>
+						<a class="nav-link" href="{% url 'safenet:plan_info_from_db' %}">Plans</a>
 					</li>
 					{% if user.is_authenticated %}
             		<li class="nav-item">

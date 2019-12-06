@@ -4,13 +4,16 @@
 {% block content %}
 
 {% if signedup %}
-        <h1>Thank you for registering!</h1>
+        <h1 style="padding-left: 20px;"">Thank you for registering!</h1>
 {% else %}
-        <h1>Register Here</h1>
+		<div style="padding-left: 20px;">
+		<h1>Register Here</h1>
+		<br>
 		<h3>Just fill out the form.</h3>
+		</div>
 		
-<h1>Sign Up</h1>
-<div class="signupform" >
+<h3 style="padding-left: 20px;padding-top: 20px;">Sign Up</h3>
+<div class="signupform" style="padding-left: 20px;">
 	<form method="post" >
 		{% csrf_token %}
 		{{ user_form.as_p }}

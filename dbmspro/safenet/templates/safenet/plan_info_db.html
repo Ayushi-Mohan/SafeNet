@@ -11,13 +11,10 @@
 <p>This plan contains all sites related to booking hotels, flights, movies , etc.
 	The sites under this plan are:-
 	<ul>
-		<li>BookMyShow</li>
-		<li>RedBus</li>
-		<li>MakeMyTrip</li>
-		<li>IRCTC</li>
-		<li>Trivago</li>
-		<li>Oyo</li>
-	</ul>
+        {% for site in bookings %}
+        <li>{{site.name}}</li>
+        {% endfor %}
+    </ul>
 </p>
 
 <h2>Plan 2</h2>
@@ -25,12 +22,9 @@
 <p>This plan contains all sites related to ecommerce
 	The sites under this plan are:-
 	<ul>
-		<li>Amazon</li>
-		<li>Flipkart</li>
-		<li>Myntra</li>
-		<li>Jabong</li>
-		<li>Snapdeal</li>
-		<li>SheIn</li>
+        {% for site in ecommerce %}
+        <li>{{site.name}}</li>
+        {% endfor %}
 	</ul>
 </p>
 
@@ -39,12 +33,9 @@
 <p>This plan contains all sites related to Entertainment
 	The sites under this plan are:-
 	<ul>
-		<li>Netflix</li>
-		<li>Spotify</li>
-		<li>YouTube</li>
-		<li>Prime Video</li>
-		<li>Prime Music</li>
-		<li>Twitch</li>
+        {% for site in entertainment %}
+        <li>{{site.name}}</li>
+        {% endfor %}
 	</ul>
 </p>
 
@@ -53,11 +44,9 @@
 <p>This plan contains all gaming sites 
 	The sites under this plan are:-
 	<ul>
-		<li>Kongregate</li>
-		<li>Free Online Games</li>
-		<li>Pogo</li>
-		<li>MiniClip</li>
-		<li>AGame</li>
+        {% for site in games %}
+        <li>{{site.name}}</li>
+        {% endfor %}	
 	</ul>
 </p>
 
@@ -66,10 +55,9 @@
 <p>This plan contains all illegal sites
 	The sites under this plan are:-
 	<ul>
-		<li>123Movies</li>
-		<li>GoMovies</li>
-		<li>Popcornflix</li>
-		<li>Best Free Streaming</li>
+        {% for site in illegal %}
+        <li>{{site.name}}</li>
+        {% endfor %}
 	</ul>
 </p>
 
@@ -78,10 +66,9 @@
 <p>This plan contains all sites that provide messaging facility
 	The sites under this plan are:-
 	<ul>
-		<li>WhatsApp</li>
-		<li>Messanger</li>
-		<li>WeChat</li>
-		<li>Hike</li>
+        {% for site in messaging %}
+        <li>{{site.name}}</li>
+        {% endfor %}
 	</ul>
 </p>
 
@@ -90,11 +77,9 @@
 <p>This plan contains all news sites 
 	The sites under this plan are:-
 	<ul>
-		<li>Reuters</li>
-		<li>Times of India</li>
-		<li>The Hindu</li>
-		<li>The New York Times</li>
-		<li>The Washington Post/li>
+        {% for site in news %}
+        <li>{{site.name}}</li>
+        {% endfor %}
 	</ul>
 </p>
 
@@ -103,14 +88,10 @@
 <p>This plan contains all social media sites
 	The sites under this plan are:-
 	<ul>
-		<li>Instagram</li>
-		<li>Facebook</li>
-		<li>Snapchat</li>
-		<li>Twitter</li>
-		<li>Reddit</li>
-		<li>Tumblr</li>
+        {% for site in socialmedia %}
+        <li>{{site.name}}</li>
+        {% endfor %}
 	</ul>
 </p>
 </div>
 {% endblock %}
-

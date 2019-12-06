@@ -6,28 +6,36 @@ function reload() {
 	    for (i=0; i<8; i++){
 	        if(url[i]=='TRUE'){
 	            if(i==0){
-	                document.getElementById("customCheck1").checked = true;
+					document.getElementById("customCheck1").checked = true;
+					myCheck1Function();
 	            }
 	            if(i==1){
-	                document.getElementById("customCheck2").checked = true;
+					document.getElementById("customCheck2").checked = true;
+					myCheck2Function();
 	            }
 	            if(i==2){
-	                document.getElementById("customCheck3").checked = true;
+					document.getElementById("customCheck3").checked = true;
+					myCheck3Function();
 	            }
 	            if(i==3){
-	                document.getElementById("customCheck4").checked = true;
+					document.getElementById("customCheck4").checked = true;
+					myCheck4Function();
 	            }
 	            if(i==4){
-	                document.getElementById("customCheck5").checked = true;
+					document.getElementById("customCheck5").checked = true;
+					myCheck5Function();
 	            }
 	            if(i==5){
-	                document.getElementById("customCheck6").checked = true;
+					document.getElementById("customCheck6").checked = true;
+					myCheck6Function();
 	            }
 	            if(i==6){
-	                document.getElementById("customCheck7").checked = true;
+					document.getElementById("customCheck7").checked = true;
+					myCheck7Function();
 	            }
 	            if(i==7){
-	                document.getElementById("customCheck8").checked = true;
+					document.getElementById("customCheck8").checked = true;
+					myCheck8Function();
 	            }
 	        }
 	        else if(url[i]=='NULL'){
@@ -35,43 +43,59 @@ function reload() {
 	        }
 	        else{
 	            if(i==0){
-	                document.getElementById("customCheck1").checked = true;
-	                document.getElementById("customSwitch1").checked = true;
+					document.getElementById("customCheck1").checked = true;
+					myCheck1Function();
+					document.getElementById("customSwitch1").checked = true;
+					mySwitch1Function();
 	                document.getElementById("URL1").value = url[i];
 	            }
 	            if(i==1){
-	                document.getElementById("customCheck2").checked = true;
-	                document.getElementById("customSwitch2").checked = true;
+					document.getElementById("customCheck2").checked = true;
+					myCheck2Function();
+					document.getElementById("customSwitch2").checked = true;
+					mySwitch2Function();
 	                document.getElementById("URL2").value = url[i];
 	            }
 	            if(i==2){
-	                document.getElementById("customCheck3").checked = true;
-	                document.getElementById("customSwitch3").checked = true;
+					document.getElementById("customCheck3").checked = true;
+					myCheck3Function();
+					document.getElementById("customSwitch3").checked = true;
+					mySwitch3Function();
 	                document.getElementById("URL3").value = url[i];
 	            }
 	            if(i==3){
-	                document.getElementById("customCheck4").checked = true;
-	                document.getElementById("customSwitch4").checked = true;
+					document.getElementById("customCheck4").checked = true;
+					myCheck4Function();
+					document.getElementById("customSwitch4").checked = true;
+					mySwitch4Function();
 	                document.getElementById("URL4").value = url[i];
 	            }
 	            if(i==4){
-	                document.getElementById("customCheck5").checked = true;
-	                document.getElementById("customSwitch5").checked = true;
+					document.getElementById("customCheck5").checked = true;
+					myCheck5Function();
+					document.getElementById("customSwitch5").checked = true;
+					mySwitch5Function();
 	                document.getElementById("URL5").value = url[i];
 	            }
 	            if(i==5){
-	                document.getElementById("customCheck6").checked = true;
-	                document.getElementById("customSwitch6").checked = true;
+					document.getElementById("customCheck6").checked = true;
+					myCheck6Function();
+					document.getElementById("customSwitch6").checked = true;
+					mySwitch6Function();
 	                document.getElementById("URL6").value = url[i];
 	            }
 	            if(i==6){
-	                document.getElementById("customCheck7").checked = true;
-	                document.getElementById("customSwitch7").checked = true;
+					document.getElementById("customCheck7").checked = true;
+					myCheck7Function();
+					document.getElementById("customSwitch7").checked = true;
+					mySwitch7Function();
 	                document.getElementById("URL7").value = url[i];
 	            }
 	            if(i==7){
-	                document.getElementById("customCheck8").checked = true;
-	                document.getElementById("customSwitch8").checked = true;
+					document.getElementById("customCheck8").checked = true;
+					myCheck8Function();
+					document.getElementById("customSwitch8").checked = true;
+					mySwitch8Function();
 	                document.getElementById("URL8").value = url[i];
 	            }
 	        }
@@ -88,7 +112,8 @@ function reload() {
     	        }
     	        else{
     	            document.getElementById("URLcust1").defaultValue = url[8];
-    	            document.getElementById("customSwitchCust1").checked = true;
+					document.getElementById("customSwitchCust1").checked = true;
+					mySwitchCust1Function();
     	            document.getElementById("CustURLRed1").value = url[9];
     	        }
     	    }
@@ -103,7 +128,8 @@ function reload() {
         	        }
         	        else{
         	            document.getElementById("URLcust2").defaultValue = url[10];
-        	            document.getElementById("customSwitchCust2").checked = true;
+						document.getElementById("customSwitchCust2").checked = true;
+						mySwitchCust2Function();
         	            document.getElementById("CustURLRed2").value = url[11];
         	        }
         	    }
@@ -117,7 +143,8 @@ function reload() {
             	        }
             	        else{
             	            document.getElementById("URLcust3").defaultValue = url[12];
-            	            document.getElementById("customSwitchCust3").checked = true;
+							document.getElementById("customSwitchCust3").checked = true;
+							mySwitchCust3Function();
             	            document.getElementById("CustURLRed3").value = url[13];
             	        }
             	    }

@@ -95,14 +95,14 @@ def user_login(request):
 					for url in custom_urls:
 						urls.append(url.block)
 						urls.append(url.redirect)
-					b = Bookings.objects.all()
-					ec = ECommerce.objects.all()
-					e = Entertainment.objects.all()
-					g = Games.objects.all()
-					il = Illegal.objects.all()
-					m = Messaging.objects.all()
-					n = News.objects.all()
-					s = SocialMedia.objects.all()
+					b = Bookings.objects.raw('select * from safenet_bookings')
+					ec = ECommerce.objects.raw('select * from safenet_ecommerce')
+					e = Entertainment.objects.raw('select * from safenet_entertainment')
+					g = Games.objects.raw('select * from safenet_games')
+					il = Illegal.objects.raw('select * from safenet_illegal')
+					m = Messaging.objects.raw('select * from safenet_messaging')
+					n = News.objects.raw('select * from safenet_news')
+					s = SocialMedia.objects.raw('select * from safenet_socialmedia')
 
 					utils.blockSites(urls, b, ec, e, g, il, m, n, s)
 					
@@ -126,12 +126,10 @@ def your_plans(request):
 			plan_urls = Plan.objects.get(usid=current_user)
 			custom_urls = Custom.objects.filter(usid=current_user)
 
-			# urls = [plan_urls.bookings, plan_urls.ecommerce, plan_urls.entertainment, plan_urls.games, plan_urls.illegal, plan_urls.messaging, plan_urls.news, plan_urls.socialMedia]
-			# for url in custom_urls:
-			# 			urls.append(url.block)
-			# 			urls.append(url.redirect)
-			# with open('./safenet/static/safenet/javascript/urls.json', 'w') as f:
-			# 	json.dump(urls, f)
+			urls = [plan_urls.bookings, plan_urls.ecommerce, plan_urls.entertainment, plan_urls.games, plan_urls.illegal, plan_urls.messaging, plan_urls.news, plan_urls.socialMedia]
+			for url in custom_urls:
+						urls.append(url.block)
+						urls.append(url.redirect)
 
 			if plan_urls:
 				plan_urls.delete()
@@ -234,17 +232,21 @@ def your_plans(request):
 		new.append(redirect2)
 		new.append(block3)
 		new.append(redirect3)
-		b = Bookings.objects.all()
-		ec = ECommerce.objects.all()
-		e = Entertainment.objects.all()
-		g = Games.objects.all()
-		il = Illegal.objects.all()
-		m = Messaging.objects.all()
-		n = News.objects.all()
-		s = SocialMedia.objects.all()
+		b = Bookings.objects.raw('select * from safenet_bookings')
+		ec = ECommerce.objects.raw('select * from safenet_ecommerce')
+		e = Entertainment.objects.raw('select * from safenet_entertainment')
+		g = Games.objects.raw('select * from safenet_games')
+		il = Illegal.objects.raw('select * from safenet_illegal')
+		m = Messaging.objects.raw('select * from safenet_messaging')
+		n = News.objects.raw('select * from safenet_news')
+		s = SocialMedia.objects.raw('select * from safenet_socialmedia')
 
 		with open('./safenet/static/safenet/javascript/urls.json', 'w') as f:
 			json.dump(new, f)
+
+		print(new)
+		with open('./safenet/static/safenet/javascript/urls.json', 'w') as f:
+				json.dump(new, f)
 
 		utils.updateBlockedSites(new, b, ec, e, g, il, m, n, s)
 		return render(request, 'safenet/your_plans.html', {})
@@ -266,3 +268,23 @@ def your_plans(request):
 				json.dump(urls, f)
 
 		return render(request, 'safenet/your_plans.html', {})
+
+def plan_info_from_db(request):
+	booking_sites = Bookings.objects.raw('select urlid, name from safenet_bookings')
+	ecommerce_sites = ECommerce.objects.raw('select urlid, name from safenet_ecommerce')
+	entertainment_sites = Entertainment.objects.raw('select urlid, name from safenet_entertainment')
+	games_sites = Games.objects.raw('select urlid, name from safenet_games')
+	illegal_sites = Illegal.objects.raw('select urlid,name from safenet_illegal')
+	messaging_sites = Messaging.objects.raw('select urlid, name from safenet_messaging')
+	news_sites = News.objects.raw('select urlid, name from safenet_news')
+	socialmedia_sites = SocialMedia.objects.raw('select urlid, name from safenet_socialmedia')
+	return render(request, 'safenet/plan_info_db.html',
+	{
+		'bookings': booking_sites,
+		'ecommerce' : ecommerce_sites,
+		'entertainment': entertainment_sites,
+		'games': games_sites,
+		'illegal': illegal_sites,
+		'messaging': messaging_sites,
+		'news': news_sites,
+		'socialmedia': socialmedia_sites })

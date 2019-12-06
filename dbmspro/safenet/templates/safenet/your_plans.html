@@ -13,12 +13,12 @@
 <script src="{% static 'safenet/javascript/reload.js' %}"></script>
 
 {% if user.is_authenticated %}
-        <h2>Hello {{ user.username }}</h2><br>
+        <h2 style="padding-left: 20px;">Hello {{ user.username }}</h2><br>
 {% else %}
         <h2>Register or Login if you'd like to</h2><br>
 {% endif %}
 
-<form class="your-plans" method="POST" action="{% url 'safenet:your_plans' %}" >
+<form class="your-plans" action="{% url 'safenet:your_plans' %}" id="form1" style="padding-left: 20px; padding-bottom: 40px;">
 	{% csrf_token %}
 	<h3>Choose Your Plans</h3>
 	<br>
@@ -234,7 +234,7 @@
 
 	<br>
 	<br>
-	<input type="submit" value="Submit">
+	<input type="submit" value="Submit" form="form1" formmethod="POST">
 </form>
 
 
