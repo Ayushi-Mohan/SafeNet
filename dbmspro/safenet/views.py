@@ -126,12 +126,12 @@ def your_plans(request):
 			plan_urls = Plan.objects.get(usid=current_user)
 			custom_urls = Custom.objects.filter(usid=current_user)
 
-			urls = [plan_urls.bookings, plan_urls.ecommerce, plan_urls.entertainment, plan_urls.games, plan_urls.illegal, plan_urls.messaging, plan_urls.news, plan_urls.socialMedia]
-			for url in custom_urls:
-						urls.append(url.block)
-						urls.append(url.redirect)
-			with open('./safenet/static/safenet/javascript/urls.json', 'w') as f:
-				json.dump(urls, f)
+			# urls = [plan_urls.bookings, plan_urls.ecommerce, plan_urls.entertainment, plan_urls.games, plan_urls.illegal, plan_urls.messaging, plan_urls.news, plan_urls.socialMedia]
+			# for url in custom_urls:
+			# 			urls.append(url.block)
+			# 			urls.append(url.redirect)
+			# with open('./safenet/static/safenet/javascript/urls.json', 'w') as f:
+			# 	json.dump(urls, f)
 
 			if plan_urls:
 				plan_urls.delete()
@@ -189,7 +189,6 @@ def your_plans(request):
 
 		block1 = block2 = block3 = 'NULL'
 		redirect1 = redirect2 = redirect3 = 'NULL'
-		print('haha')
 		if request.POST.get('c9'):
 			block1 = request.POST.get('c9')
 			if request.POST.get('s9'):
@@ -244,7 +243,8 @@ def your_plans(request):
 		n = News.objects.all()
 		s = SocialMedia.objects.all()
 
-		print(new)
+		with open('./safenet/static/safenet/javascript/urls.json', 'w') as f:
+			json.dump(new, f)
 
 		utils.updateBlockedSites(new, b, ec, e, g, il, m, n, s)
 		return render(request, 'safenet/your_plans.html', {})
@@ -261,6 +261,8 @@ def your_plans(request):
 				json.dump(urls, f)
 
 		except:
-			pass
+			urls = ['NULL', 'NULL', 'NULL', 'NULL', 'NULL', 'NULL', 'NULL', 'NULL']
+			with open('./safenet/static/safenet/javascript/urls.json', 'w') as f:
+				json.dump(urls, f)
 
 		return render(request, 'safenet/your_plans.html', {})
