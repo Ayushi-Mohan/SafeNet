@@ -25,6 +25,7 @@ from safenet.models import Plan, Custom, Bookings, ECommerce, Entertainment, Gam
 import safenet.utils as utils
 import os
 import platform
+import json
 
 def index(request):
 	return render(request,'safenet/index.html')
@@ -129,9 +130,8 @@ def your_plans(request):
 			for url in custom_urls:
 						urls.append(url.block)
 						urls.append(url.redirect)
-			with open('./safenet/static/safenet/javascript/urls.txt', 'w') as f:
-				for item in urls:
-					f.write("%s\n" %item)
+			with open('./safenet/static/safenet/javascript/urls.json', 'w') as f:
+				json.dump(urls, f)
 
 			if plan_urls:
 				plan_urls.delete()
@@ -257,9 +257,8 @@ def your_plans(request):
 			for url in custom_urls:
 						urls.append(url.block)
 						urls.append(url.redirect)
-			with open('./safenet/static/safenet/javascript/urls.txt', 'w') as f:
-				for item in urls:
-					f.write("%s\n" %item)
+			with open('./safenet/static/safenet/javascript/urls.json', 'w') as f:
+				json.dump(urls, f)
 
 		except:
 			pass
