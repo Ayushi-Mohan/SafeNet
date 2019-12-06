@@ -14,7 +14,7 @@ from safenet import views
 app_name = 'safenet'
 # Be careful setting the name to just /login use userlogin instead!
 urlpatterns=[
-    url(r'^plan_info/$',views.plan_info, name="plan_info"),
+    url(r'^plan_info/$',views.plan_info_from_db, name="plan_info_from_db"),
     url(r'^signup/$',views.signup,name='signup'),
     url(r'^user_login/$',views.user_login,name='user_login'),
     url(r'^your_plans/$',views.your_plans,name='your_plans'),

@@ -265,3 +265,23 @@ def your_plans(request):
 			pass
 
 		return render(request, 'safenet/your_plans.html', {})
+
+def plan_info_from_db(request):
+	booking_sites = Bookings.objects.raw('select urlid, name from safenet_bookings')
+	ecommerce_sites = ECommerce.objects.raw('select urlid, name from safenet_ecommerce')
+	entertainment_sites = Entertainment.objects.raw('select urlid, name from safenet_entertainment')
+	games_sites = Games.objects.raw('select urlid, name from safenet_games')
+	illegal_sites = Illegal.objects.raw('select urlid,name from safenet_illegal')
+	messaging_sites = Messaging.objects.raw('select urlid, name from safenet_messaging')
+	news_sites = News.objects.raw('select urlid, name from safenet_news')
+	socialmedia_sites = SocialMedia.objects.raw('select urlid, name from safenet_socialmedia')
+	return render(request, 'safenet/plan_info_db.html',
+	{
+		'bookings': booking_sites,
+		'ecommerce' : ecommerce_sites,
+		'entertainment': entertainment_sites,
+		'games': games_sites,
+		'illegal': illegal_sites,
+		'messaging': messaging_sites,
+		'news': news_sites,
+		'socialmedia': socialmedia_sites })

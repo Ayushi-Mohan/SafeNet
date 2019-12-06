@@ -1,0 +1,97 @@
+{% extends 'safenet/base.html' %}
+{% load static %}
+
+{% block content %}
+<div style="padding-left: 20px;">
+<h1 style="padding-top: 30px;">Plan Information</h1>
+<div>This page aims to give some information about all the plans we provide.</div>
+<br>
+<h2>Plan 1</h2>
+<h3>Bookings</h3>
+<p>This plan contains all sites related to booking hotels, flights, movies , etc.
+	The sites under this plan are:-
+	<ul>
+        {% for site in bookings %}
+        <li>{{site.name}}</li>
+        {% endfor %}
+    </ul>
+</p>
+
+<h2>Plan 2</h2>
+<h3>Ecommerce</h3>
+<p>This plan contains all sites related to ecommerce
+	The sites under this plan are:-
+	<ul>
+        {% for site in ecommerce %}
+        <li>{{site.name}}</li>
+        {% endfor %}
+	</ul>
+</p>
+
+<h2>Plan 3</h2>
+<h3>Entertainment</h3>
+<p>This plan contains all sites related to Entertainment
+	The sites under this plan are:-
+	<ul>
+        {% for site in entertainment %}
+        <li>{{site.name}}</li>
+        {% endfor %}
+	</ul>
+</p>
+
+<h2>Plan 4</h2>
+<h3>Games</h3>
+<p>This plan contains all gaming sites 
+	The sites under this plan are:-
+	<ul>
+        {% for site in games %}
+        <li>{{site.name}}</li>
+        {% endfor %}	
+	</ul>
+</p>
+
+<h2>Plan 5</h2>
+<h3>Illegal</h3>
+<p>This plan contains all illegal sites
+	The sites under this plan are:-
+	<ul>
+        {% for site in illegal %}
+        <li>{{site.name}}</li>
+        {% endfor %}
+	</ul>
+</p>
+
+<h2>Plan 6</h2>
+<h3>Messaging</h3>
+<p>This plan contains all sites that provide messaging facility
+	The sites under this plan are:-
+	<ul>
+        {% for site in messaging %}
+        <li>{{site.name}}</li>
+        {% endfor %}
+	</ul>
+</p>
+
+<h2>Plan 7</h2>
+<h3>News</h3>
+<p>This plan contains all news sites 
+	The sites under this plan are:-
+	<ul>
+        {% for site in news %}
+        <li>{{site.name}}</li>
+        {% endfor %}
+	</ul>
+</p>
+
+<h2>Plan 8</h2>
+<h3>Social Media</h3>
+<p>This plan contains all social media sites
+	The sites under this plan are:-
+	<ul>
+        {% for site in socialmedia %}
+        <li>{{site.name}}</li>
+        {% endfor %}
+	</ul>
+</p>
+</div>
+{% endblock %}
