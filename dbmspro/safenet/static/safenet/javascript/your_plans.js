@@ -3,11 +3,11 @@ function myCheck1Function() {
     var checkBox1 = document.getElementById("customCheck1");
     // Get the switch
     var divSwitch1 = document.getElementById("divSwitch1");
-
+    
     // If the checkbox is checked, display the switch
     if (checkBox1.checked == true){
         divSwitch1.style.display = "block";
-    } else {
+    }else{
         divSwitch1.style.display = "none";
     }
 }

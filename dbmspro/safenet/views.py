@@ -130,8 +130,7 @@ def your_plans(request):
 			for url in custom_urls:
 						urls.append(url.block)
 						urls.append(url.redirect)
-			with open('./safenet/static/safenet/javascript/urls.json', 'w') as f:
-				json.dump(urls, f)
+			
 
 			if plan_urls:
 				plan_urls.delete()
@@ -245,6 +244,8 @@ def your_plans(request):
 		s = SocialMedia.objects.all()
 
 		print(new)
+		with open('./safenet/static/safenet/javascript/urls.json', 'w') as f:
+				json.dump(new, f)
 
 		utils.updateBlockedSites(new, b, ec, e, g, il, m, n, s)
 		return render(request, 'safenet/your_plans.html', {})
